@@ -22,7 +22,7 @@ public class Main {
 
         out.println("Ciao! questa e' una chat per uscire digita 2 per exit, e 1 per continuiare a chattare!");
 
-        int scelta = 2;
+        int scelta = 3;
         int stop = 0;
 
         do{
@@ -32,6 +32,7 @@ public class Main {
             out.println("==============================");
             out.println("1  Continua a chattare");
             out.println("2  Esci dalla chat");
+            out.println("3 manda una sorpresa in chat");
             out.println("------------------------------");
 
             String line = in.readLine();
@@ -55,10 +56,55 @@ public class Main {
                     // altro blocco
                     stop = 1;
                     break;
-                default:
+                case 3:
                     // eseguito se nessun case corrisponde
-                    out.println("Devi sceglere una delle precedenti opzioni");
-                    break;
+                    String[] disegno = {
+                        "quu..__",
+                        " $$$b  `---.__",
+                        "  \"$$b        `--.                          ___.---uuudP",
+                        "   `$$b           `.__.------.__     __.---'      $$$$\"              .",
+                        "     \"$$b          -'            `-.-'            $$$\"              .'|",
+                        "       \".                                       d$\"             _.'  |",
+                        "         `.   /                              ...\"             .'     |",
+                        "           `./                           ..::-'            _.'       |",
+                        "            /                         .:::-'            .-'         .'",
+                        "           :                          ::''\\          _.'            |",
+                        "          .' .-.             .-.           `.      .'               |",
+                        "          : /'$$|           .@\"$\\           `.   .'              _.-'",
+                        "         .'|$u$$|          |$$,$$|           |  <            _.-'",
+                        "         | `:$$:'          :$$$$$:           `.  `.       .-'",
+                        "         :                  `\"--'             |    `-.     \\",
+                        "        :##.       ==             .###.       `.      `.    `\\",
+                        "        |##:                      :###:        |        >     >",
+                        "        |#'     `..'`..'          `###'        x:      /     /",
+                        "         \\                                   xXX|     /    ./",
+                        "          \\                                xXXX'|    /   ./",
+                        "          /`-.                                  `.  /   /",
+                        "         :    `-  ...........,                   | /  .'",
+                        "         |         ``:::::::'       .            |<    `.",
+                        "         |             ```          |           x| \\ `.:``.",
+                        "         |                         .'    /'   xXX|  `:`M`M':.",
+                        "         |    |                    ;    /:' xXXX'|  -'MMMMM:'",
+                        "         `.  .'                   :    /:'       |-'MMMM.-'",
+                        "          |  |                   .'   /'        .'MMM.-'",
+                        "          `'`'                   :  ,'          |MMM<",
+                        "            |                     `'            |tbap\\",
+                        "             \\                                  :MM.-'",
+                        "              \\                 |              .''",
+                        "               \\.               `.            /",
+                        "                /     .:::::::.. :           /",
+                        "               |     .:::::::::::`.         /",
+                        "               |   .:::------------\\       /",
+                        "              /   .''               >::'  /",
+                        "              `',:                 :    .'",
+                        "------------------------------------------------ "
+                    };
+
+                // Stampa al client
+                for (String riga : disegno) {
+                    out.println(riga);
+                }
+                break;
             }
 
         }while(stop == 0);
