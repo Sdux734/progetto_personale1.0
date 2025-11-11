@@ -20,28 +20,48 @@ public class Main {
         BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));  // Step 3: Create input stream to read data from client
         PrintWriter out = new PrintWriter(s.getOutputStream(), true);   // Step 4: Create output stream to send data to client
 
-        out.println("Ciao! questa e' una chat per uscire digita exit!");
+        out.println("Ciao! questa e' una chat per uscire digita 2 per exit, e 1 per continuiare a chattare!");
 
-        String var = "";
+        int scelta = 2;
+        int stop = 0;
 
         do{
-            String stringa = in.readLine();
-            System.out.println(stringa);
 
-            if(stringa.toLowerCase().equals("exit")){
-                var = "exit";
-                break;
+            out.println("\n==============================");
+            out.println("        MENU PRINCIPALE       ");
+            out.println("==============================");
+            out.println("1  Continua a chattare");
+            out.println("2  Esci dalla chat");
+            out.println("------------------------------");
+
+            String line = in.readLine();
+            int numero = Integer.parseInt(line); 
+            System.out.println(line);
+            scelta = numero;
+
+            switch (scelta) {
+                case 1:
+                    // blocco di istruzioni
+                    out.println("digita il messaggio che vuoi mandare: ");
+
+                    String stringa = in.readLine();
+                    System.out.println(stringa);
+
+                    String scan = scanner.next();
+                    out.print("> ");
+                    out.println(scan);
+                    break; // interrompe lo switch
+                case 2:
+                    // altro blocco
+                    stop = 1;
+                    break;
+                default:
+                    // eseguito se nessun case corrisponde
+                    out.println("Devi sceglere una delle precedenti opzioni");
+                    break;
             }
 
-            String scan = scanner.next();
-            out.println(scan);
-
-            if(scan.toLowerCase().equals("exit")){
-                var = "exit";
-                break;
-            }
-
-        }while(!var.equals("exit"));
+        }while(stop == 0);
 
         scanner.close();
         ss.close();
